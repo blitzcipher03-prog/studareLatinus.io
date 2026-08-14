@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latin I and II Study Materials</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #8B0000;
+    }
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-color: #FFA500;
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .top-bar-text {
+      font-family: 'Times New Roman', serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+    }
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-color: #FFD700;
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+    .ticker-text {
+      display: inline-block;
+      font-family: 'Constantia', 'Georgia', serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      white-space: nowrap;
+    }
+    .ticker-text.animate {
+      animation: ticker 10s linear forwards;
+    }
+    @keyframes ticker {
+      from { transform: translateX(-100%); }
+      to   { transform: translateX(100vw); }
+    }
+    .breaking-news {
+      position: fixed;
+      bottom: 35px;
+      left: 5px;
+      font-family: 'Constantia', 'Georgia', serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFD700;
+      z-index: 2;
+    }
+    .title, .subtitle, .img-container {
+      z-index: 2;
+    }
+    .top-right-img {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #ffffff;
+    }
+    .img-container {
+      position: fixed;
+      top: 35px;
+      right: 8px;
+      display: flex;
+    }
+    .title {
+      position: fixed;
+      top: 35px;
+      left: 5px;
+      font-family: 'Times New Roman', serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    .subtitle {
+      position: fixed;
+      top: 65px;
+      left: 5px;
+      font-family: 'Times New Roman', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: white;
+    }
+    .subjects img {
+      width: 190px;
+      height: 65px;
+    }
+    .subject-btn {
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    .back-btn {
+      position: fixed;
+      top: 70px;
+      left: 5px;
+      font-family: 'Times New Roman', serif;
+      font-size: 16px;
+      color: #4DA6FF;
+      text-decoration: underline;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .l1-content {
+      position: fixed;
+      top: 135px;
+      left: 5px;
+    }
+    .l1-section {
+      font-family: 'Times New Roman', serif;
+      font-size: 23px;
+      font-weight: bold;
+      color: white;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    .l1-row {
+      font-family: 'Times New Roman', serif;
+      font-size: 16px;
+      color: white;
+      margin: 3px 0 3px 10px;
+    }
+    .l1-elbow {
+      display: inline-block;
+      width: 10px;
+      height: 9px;
+      border-left: 1px solid #ffffff;
+      border-bottom: 1px solid #ffffff;
+      margin-right: 4px;
+      margin-bottom: 1px;
+    }
+    .l1-row a {
+      color: #4DA6FF;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .l1-row a:hover {
+      text-decoration: underline;
+    }
+    .l2-message {
+      position: fixed;
+      top: 35px;
+      left: 5px;
+      font-family: 'Times New Roman', serif;
+      font-size: 18px;
+      color: white;
+    }
+    .subjects {
+      position: fixed;
+      top: 120px;
+      left: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-family: 'Times New Roman', serif;
+      font-size: 28px;
+      font-weight: bold;
+      color: #0000EE;
+    }
+    .resources-block {
+      position: fixed;
+      top: 275px;
+      left: 5px;
+      z-index: 2;
+    }
+    .other-resources {
+      font-family: 'Times New Roman', serif;
+      font-size: 23px;
+      font-weight: bold;
+      color: white;
+    }
+    .resource-row {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+    }
+    .ref-message {
+      font-family: Arial, sans-serif;
+      font-style: italic;
+      font-size: 15px;
+      color: white;
+      max-width: 340px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .elbow {
+      width: 10px;
+      height: 9px;
+      border-left: 1px solid white;
+      border-bottom: 1px solid white;
+      margin-bottom: 4px;
+    }
+    .resource-link {
+      margin-left: 4px;
+      font-family: 'Times New Roman', serif;
+      font-size: 16px;
+      color: #4DA6FF;
+    }
+    .hover-text {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      font-family: 'Times New Roman', serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      max-width: 200px;
+      text-align: right;
+      padding: 0 5px;
+    }
+    .img-container a:hover + .hover-text {
+      display: block;
+    }
+    .suggestions-toggle {
+      position: fixed;
+      right: 8px;
+      bottom: 38px;
+      z-index: 10;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .suggestions-toggle img {
+      display: block;
+      width: 149px;
+      height: 49px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"><span class="top-bar-text">Created by Ben V and Ethan M</span></div>
+  <div class="bottom-bar"><span class="ticker-text" id="ticker-text"></span></div>
+  <div class="breaking-news">BREAKING NEWS!</div>
+
+  <!-- Suggestions button -> link to Google Form.
+       TODO: replace href="#" below with your Google Form URL, e.g.
+       href="https://forms.gle/yourFormLink" -->
+  <a class="suggestions-toggle" href="#" target="_blank" rel="noopener">
+    <img src="data:image/png;base64,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" alt="Suggestions">
+  </a>
+
+  <div id="main-page">
+    <div class="title">Latin I and II Study Materials</div>
+    <div class="subtitle">"Ad Astra Per Aspera"</div>
+    <div class="subjects">
+      <button class="subject-btn" onclick="showLatin1()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABBCAYAAAAzOl11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPHSURBVHhe7ZoxjhQxFET3JKScgZA7kHEEIk5AwgUIyAmIkUiRyBAhIkJEiAgyyCAcVEJf+7fGrrb/tDU7qyrpabVtT3/P+o3d3bNXh3v3D8bszRUfMGYPLJZZgsUyS2iL5TizsVjOklgsZ0mmxeI2YwLhicUydYQnFsvUEZ5YLFNHeGKxTB3hicUydYQnFsvUEZ5YLFNHeGKxTB3hicUydYQnFsvUEZ5YLFNHeGKxTB3hicUydYQnFsvUEZ5YLFNHeHJ3xXrw8PiY2RfhyfnFevb8Zr2cb9+P+4/w6fP/1/fk+vWbK43l3Xs9XiRqcP78PRyePD0eC8B5ORgj98uoYIzcfwU51HZ+sQD+ED9+3qz76nVfDMWjx9fnePP2uB1AWEx0PsaT22qLCYMgIW8EfVA7j4PPiffYe084N8aF4L3nc7VAO95fzpevfXlXkENtt0MswJPA7aN8+Hh9DkwktwNMIMTIx1T9WKXyZPPK1VoluA+iVuEYAx9X5OD13L6SHGq7W2JhNcBKlNP6BGNyX7y8eWyrPq9wLI0Si8fEUvMY+Lgix2I12JrYEbCF8CRiBeN+rW1mqz6/ZkYsjKG11XN/i7WArYkdARe8WA1wrRHhlabHbP0ZseL6i6Xn11isBcxOLBOTiJ9YDXJ422sxW39WLPyObTkHouWV0GItYHZiGVw3xS06rrVysIJxf2a2fkUswNLnO0WLtYDZic3EI4b8h83bIdK7zQ9m61fFAvyoIsS3WAuYndhMTFTeVrD95fSeaQWz9U8RC8Qzqwgu8C3WAmYnNmg9Ymil90wrmK1/qlgYN98pxu/cV5HTqrOSHGq7PLH4Nj2ePrcmNj8sRVrPtILR+sGpYgGMp/Wh4H6KnF6dVeRQ22WJhe2Nn1zjgr23GuWvd5DWM61gpH5mD7Fa50G4jyJH1VlBDrVdlliQKosVd1i8imX4mVbvIn6kfoaFqIoF+E6R2xU5W3X2JofabodYmAC+mG31QdAPcmD1iv9S6H1hjRWL7w75i9o4F9fHFtvbOnGct1lMau9LaK7ZIt8pclsLnJ+FHKmzJznUdn6x+JO/FUwWy4LwFglUYoVhoTi8Em2NV9XmczEzF+8qW3X2Iofazi+WuVyEJxbL1BGeWCxTR3hisUwd4YnFMnWEJxbL1BGeWCxTR3hisUwd4YnFMnWEJxbL1BGeWCxTR3hisUwd4YnFMnWEJxbL1BGeWCxTR3hisUwd4YnFMnWEJxbL1BGebIvlOCOxWM6SWCxnSYbEMuZELJZZgsUyS7BYZgn/AO4Md38AZvqAAAAAAElFTkSuQmCC" alt="Latin I"></button>
+      <button class="subject-btn" onclick="showLatin2()"><img src="data:image/png;base64,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" alt="Latin II"></button>
+    </div>
+    <div class="img-container">
+      <a href="http://www.wheelockslatin.com" target="_blank">
+        <img class="top-right-img" src="https://m.media-amazon.com/images/I/81jFHGwiV6L._AC_UF1000,1000_QL80_.jpg" alt="Wheelock's Latin">
+      </a>
+      <div class="hover-text">This is study material based of Wheelock's Latin, you can visit their website by clicking on the image!</div>
+    </div>
+    <div class="resources-block">
+      <div class="other-resources">Other Resources:</div>
+      <div class="resource-row">
+        <span class="elbow"></span>
+        <a class="resource-link" href="https://hcmc.uvic.ca/project/latin/wheelock/contents.htm" target="_blank">https://hcmc.uvic.ca/project/latin/wheelock/contents.htm</a>
+      </div>
+      <div class="resource-row">
+        <span class="elbow"></span>
+        <a class="resource-link" href="https://www.youtube.com/playlist?list=PLbkEjA_heZ8mpmDtMz3wRU9_WLcL0qezt" target="_blank">https://www.youtube.com/playlist?list=PLbkEjA_heZ8mpmDtMz3wRU9_WLcL0qezt</a>
+      </div>
+      <p class="ref-message">“Hey everyone! I’ve compiled a list of study materials from vocabulary quizlets to some extra tables practice and listed them below. I made most of them (based on class requests), but some of them are useful links to YouTube videos or resources that can be found online. I hope that these study guides are useful!! This is a work in progress, so some things may be missing for now. If you have suggestions or ideas for other materials that I can make to help you, feel free to message me and I’ll make sure that it’s created for you. Happy studying!! :)” -EM</p>
+      <p class="ref-message">“Hello users of this I created the website!” - BV</p>
+    </div>
+  </div>
+
+  <div id="latin1-page" style="display:none">
+    <div class="title">Latin I Materials</div>
+    <button class="back-btn" onclick="showMain()">← Back</button>
+    <div class="l1-content">
+      <div class="l1-section">Vocabulary Study Guides:</div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 1: <a href="https://quizlet.com/1161808671/wheelock-chapter-1-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161808671/wheelock-chapter-1-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 2: <a href="https://quizlet.com/1161809115/wheelock-chapter-2-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161809115/wheelock-chapter-2-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 3: <a href="https://quizlet.com/1161809577/wheelock-chapter-3-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161809577/wheelock-chapter-3-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 4: <a href="https://quizlet.com/1161810010/wheelock-chapter-4-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161810010/wheelock-chapter-4-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 5: <a href="https://quizlet.com/1161811148/wheelock-chapter-5-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161811148/wheelock-chapter-5-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 6: <a href="https://quizlet.com/1161811525/wheelock-chapter-6-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161811525/wheelock-chapter-6-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 7: <a href="https://quizlet.com/1161812085/wheelock-chapter-7-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161812085/wheelock-chapter-7-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 8: <a href="https://quizlet.com/1161813210/wheelock-chapter-8-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161813210/wheelock-chapter-8-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 9: <a href="https://quizlet.com/1161813899/wheelock-chapter-9-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161813899/wheelock-chapter-9-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 10: <a href="https://quizlet.com/1161814246/wheelock-chapter-10-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161814246/wheelock-chapter-10-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 11: <a href="https://quizlet.com/1161815292/wheelock-chapter-11-vocab-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161815292/wheelock-chapter-11-vocab-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 12: <a href="https://quizlet.com/1161795183/chapter-12-vocabulary-grammar-questions-and-extra-info-flash-cards/?funnelUUID=7fe3dcec-8aca-4df6-9e48-4427771b206c" target="_blank">https://quizlet.com/1161795183/chapter-12-vocabulary-grammar-questions-and-extra-info-flash-cards/?funnelUUID=7fe3dcec-8aca-4df6-9e48-4427771b206c</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Chapter 13: <a href="https://quizlet.com/1172048865/chapter-13-vocab-study-guide-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1172048865/chapter-13-vocab-study-guide-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-section">Demonstratives Study Guides:</div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Demonstrative Pronouns (1st, 2nd, 3rd Persons): <a href="https://quizlet.com/1161826819/demonstrative-pronouns-1st-2nd-3rd-persons-study-guide-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161826819/demonstrative-pronouns-1st-2nd-3rd-persons-study-guide-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Demonstrative Adjectives (Hic Haec Hoc and Ille Illa Illud): <a href="https://quizlet.com/1161828583/demonstrative-adjectives-practice-parse-to-cng-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161828583/demonstrative-adjectives-practice-parse-to-cng-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-section">Adjectives Study Guides:</div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Special Adjectives (Naughty Nine): <a href="https://quizlet.com/1161816712/special-adjectives-study-guide-naughty-9-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161816712/special-adjectives-study-guide-naughty-9-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-section">Verbs Study Guides:</div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Verb Endings (Latin to English Translation Practice): <a href="https://quizlet.com/1161834866/verb-endings-latin-to-english-translation-practice-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161834866/verb-endings-latin-to-english-translation-practice-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Verb Endings Study Guide: 1st &amp; 2nd Conjugation Active Indicative Future Endings: <a href="https://quizlet.com/1161835995/verb-endings-study-guide-1st-2nd-conj-active-indicative-future-endings-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161835995/verb-endings-study-guide-1st-2nd-conj-active-indicative-future-endings-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Verb Endings: Third Conjugation Plural Verb Endings: <a href="https://quizlet.com/1161836707/verb-endings-third-conjugation-plural-verb-endings-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161836707/verb-endings-third-conjugation-plural-verb-endings-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-section">Nouns Study Guides:</div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>Cases Practice/Sentence Context Practice: <a href="https://quizlet.com/1161837728/noun-endingscases-practice-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161837728/noun-endingscases-practice-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>1st Declension Noun Endings: <a href="https://quizlet.com/1161838886/first-declension-noun-endings-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161838886/first-declension-noun-endings-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>2nd Declension Noun Endings (Masculine): <a href="https://quizlet.com/1161839383/2nd-declension-masculine-noun-endings-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161839383/2nd-declension-masculine-noun-endings-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>2nd Declension Noun Endings (Neuter): <a href="https://quizlet.com/1161839885/2nd-declension-neuter-noun-endings-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161839885/2nd-declension-neuter-noun-endings-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>3rd Declension Noun Endings (Feminine &amp; Masculine): <a href="https://quizlet.com/1161840427/3rd-declension-noun-endings-feminine-masculine-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161840427/3rd-declension-noun-endings-feminine-masculine-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+      <div class="l1-row">
+        <span class="l1-elbow"></span>3rd Declension Noun Endings (Neuter): <a href="https://quizlet.com/1161841918/3rd-declension-noun-endings-neuter-flash-cards/?i=6qebdt&amp;x=1jqt" target="_blank">https://quizlet.com/1161841918/3rd-declension-noun-endings-neuter-flash-cards/?i=6qebdt&amp;x=1jqt</a></div>
+    </div>
+  </div>
+  <div id="latin2-page" style="display:none">
+    <button class="back-btn" style="top: 70px" onclick="showMain()">← Back</button>
+    <div class="l2-message">Nothing yet sorry :( - BV</div>
+  </div>
+
+<script>
+  // Add your news messages to this list - one is chosen at random every 10
+  // seconds and scrolls across the gold bar.
+  const newsList = [
+    'Romulus of Alba Longa has just founded Rome after brief disagreement with brother. Experts say the city will fall to the Carthaginians.',
+    'Mass hysteria as new verb conjugation test is announced to the public.',
+    'Incoming sophomores state that the surprise addition of a new classical literacy packet in the middle of summer is, "Very inconvenient".',
+    'The newer generation is now calling "Discus" the new sport-of-the-century.'
+  ];
+  const tickerEl = document.getElementById('ticker-text');
+
+  function runNext() {
+    tickerEl.style.visibility = 'visible';
+    tickerEl.textContent =
+      newsList[Math.floor(Math.random() * newsList.length)];
+    tickerEl.classList.remove('animate');
+    void tickerEl.offsetWidth;
+    tickerEl.classList.add('animate');
+    setTimeout(function () {
+      tickerEl.style.visibility = 'hidden';
+      setTimeout(runNext, 25000);
+    }, 10000);
+  }
+
+  runNext();
+
+  function showLatin1() {
+    document.getElementById('main-page').style.display = 'none';
+    document.getElementById('latin1-page').style.display = 'block';
+    document.getElementById('latin2-page').style.display = 'none';
+  }
+
+  function showLatin2() {
+    document.getElementById('main-page').style.display = 'none';
+    document.getElementById('latin1-page').style.display = 'none';
+    document.getElementById('latin2-page').style.display = 'block';
+  }
+
+  function showMain() {
+    document.getElementById('main-page').style.display = 'block';
+    document.getElementById('latin1-page').style.display = 'none';
+    document.getElementById('latin2-page').style.display = 'none';
+  }
+</script>
+</body>
+</html>

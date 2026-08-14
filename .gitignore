@@ -1,10 +1,9 @@
-# Dependencies
+# Node
 node_modules/
 
-# Runtime data - never commit
-suggestions.json
-owner-ips.json
+# Logs
 *.log
+!server.log.example
 
 # Secrets / local env
 .env
