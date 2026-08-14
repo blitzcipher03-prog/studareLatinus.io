@@ -257,6 +257,62 @@
       height: 49px;
     }
   </style>
+  <style>
+  @media only screen and (max-width: 720px) {
+    .l1-content {
+      position: absolute;
+      top: 135px;
+      left: 5px;
+      right: 8px;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 20px;
+    }
+    .subjects,
+    .resources-block {
+      position: static;
+    }
+    .subjects {
+      margin-top: 38px;
+    }
+    .top-right-img {
+      width: 110px;
+      height: 110px;
+    }
+    .title {
+      font-size: 20px;
+      max-width: calc(100vw - 120px);
+    }
+    .subtitle {
+      font-size: 14px;
+    }
+    .subjects img,
+    .subject-btn img {
+      width: 100%;
+      height: auto;
+    }
+    .resource-row,
+    .l1-row {
+      flex-wrap: wrap;
+    }
+    .suggestions-toggle img {
+      width: 100%;
+      height: auto;
+    }
+    .l2-message {
+      font-size: 16px;
+      max-width: 90%;
+    }
+    .l1-section {
+      font-size: 20px;
+    }
+    .breaking-news {
+      bottom: 38px;
+      left: 5px;
+    }
+  }
+</style>
 </head>
 <body>
   <div class="top-bar"><span class="top-bar-text">Created by Ben V and Ethan M</span></div>
